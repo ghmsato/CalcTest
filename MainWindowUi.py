@@ -1,0 +1,93 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'main.ui'
+#
+# Created by: PyQt5 UI code generator 5.7.1
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(304, 322)
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton.setGeometry(QtCore.QRect(20, 250, 261, 34))
+        self.pushButton.setObjectName("pushButton")
+        self.verticalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(20, 20, 111, 141))
+        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.label = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.label.setObjectName("label")
+        self.verticalLayout.addWidget(self.label)
+        self.spinBox_2 = QtWidgets.QSpinBox(self.verticalLayoutWidget)
+        self.spinBox_2.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.spinBox_2.setProperty("value", 3)
+        self.spinBox_2.setObjectName("spinBox_2")
+        self.verticalLayout.addWidget(self.spinBox_2)
+        self.label_6 = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.label_6.setText("")
+        self.label_6.setObjectName("label_6")
+        self.verticalLayout.addWidget(self.label_6)
+        self.label_2 = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.label_2.setObjectName("label_2")
+        self.verticalLayout.addWidget(self.label_2)
+        self.spinBox = QtWidgets.QSpinBox(self.verticalLayoutWidget)
+        self.spinBox.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.spinBox.setProperty("value", 2)
+        self.spinBox.setObjectName("spinBox")
+        self.verticalLayout.addWidget(self.spinBox)
+        self.verticalLayoutWidget_2 = QtWidgets.QWidget(self.centralwidget)
+        self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(160, 20, 121, 201))
+        self.verticalLayoutWidget_2.setObjectName("verticalLayoutWidget_2")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_2)
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.label_3 = QtWidgets.QLabel(self.verticalLayoutWidget_2)
+        self.label_3.setObjectName("label_3")
+        self.verticalLayout_2.addWidget(self.label_3)
+        self.radioButton = QtWidgets.QRadioButton(self.verticalLayoutWidget_2)
+        self.radioButton.setChecked(False)
+        self.radioButton.setObjectName("radioButton")
+        self.verticalLayout_2.addWidget(self.radioButton)
+        self.radioButton_2 = QtWidgets.QRadioButton(self.verticalLayoutWidget_2)
+        self.radioButton_2.setChecked(True)
+        self.radioButton_2.setObjectName("radioButton_2")
+        self.verticalLayout_2.addWidget(self.radioButton_2)
+        self.label_5 = QtWidgets.QLabel(self.verticalLayoutWidget_2)
+        self.label_5.setText("")
+        self.label_5.setObjectName("label_5")
+        self.verticalLayout_2.addWidget(self.label_5)
+        self.label_4 = QtWidgets.QLabel(self.verticalLayoutWidget_2)
+        self.label_4.setObjectName("label_4")
+        self.verticalLayout_2.addWidget(self.label_4)
+        self.spinBox_3 = QtWidgets.QSpinBox(self.verticalLayoutWidget_2)
+        self.spinBox_3.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.spinBox_3.setProperty("value", 10)
+        self.spinBox_3.setObjectName("spinBox_3")
+        self.verticalLayout_2.addWidget(self.spinBox_3)
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setObjectName("statusbar")
+        MainWindow.setStatusBar(self.statusbar)
+
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.pushButton.setText(_translate("MainWindow", "問題作成"))
+        self.label.setText(_translate("MainWindow", "除数の桁"))
+        self.label_2.setText(_translate("MainWindow", "被除数の桁"))
+        self.label_3.setText(_translate("MainWindow", "余り"))
+        self.radioButton.setText(_translate("MainWindow", "あり"))
+        self.radioButton_2.setText(_translate("MainWindow", "なし"))
+        self.label_4.setText(_translate("MainWindow", "問題数"))
+
