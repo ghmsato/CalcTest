@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
 import sys
 import random
 
@@ -8,12 +11,19 @@ from PyQt5.Qt import *
 
 import MainWindowUi
 
+# return 1 or 0 based on threshold value
+# i: current position
+# v: threshold value
 def f(i, v):
     if i < v:
         return 1
     else:
         return 0
 
+# make random array of flags
+# l: length of array
+# v: number of 1 values in the array
+# https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A3%E3%83%83%E3%82%B7%E3%83%A3%E3%83%BC_-_%E3%82%A4%E3%82%A7%E3%83%BC%E3%83%84%E3%81%AE%E3%82%B7%E3%83%A3%E3%83%83%E3%83%95%E3%83%AB
 def randsort_f(l, v):
     a = [0] * l
     for i in range(l):
@@ -23,6 +33,10 @@ def randsort_f(l, v):
         a[j] = f(i, v)
     return a
 
+# make one item from parameters
+# a: number of digits for dividend
+# b: number of digits for divider
+# f: flag 0 -- no remainder, 1 -- with remainder
 def mkitem(a, b, f):
     x = random.randint(10 ** (a - 1), 10 ** a - 1)
     y = random.randint(10 ** (b - 1), 10 ** b - 1)
@@ -36,6 +50,7 @@ def mkitem(a, b, f):
         r = int(x / y)
         s = x - y * r
     return [x, y, r, s]
+
 
 class MainWindow(QMainWindow):
     def __init__(self, parent=None):
@@ -59,6 +74,7 @@ class MainWindow(QMainWindow):
         self.setWindowTitle('CalcTest')
         self.show()
 
+    # callback function for checking any of radio button
     def changeChecked(self):
         if self.ui.radioButton_3.isChecked():
             self.ui.horizontalSlider.setEnabled(True)
@@ -67,18 +83,22 @@ class MainWindow(QMainWindow):
             self.ui.horizontalSlider.setEnabled(False)
             self.ui.spinBox_4.setEnabled(False)
 
+    # callback function for changing slider
     def changeValueSlider(self, value):
         if self.ui.radioButton_3.isChecked():
             self.ui.spinBox_4.setValue(value)
 
+    # callback function for changing value of rate
     def changeValueSpinBox(self, value):
         if self.ui.radioButton_3.isChecked():
             self.ui.horizontalSlider.setValue(value)
 
+    # callback function for changing value of result items
     def changeValueNum(self, value):
         self.ui.horizontalSlider.setRange(0, value)
         self.ui.spinBox_4.setRange(0, value)
 
+    # callback function for clicking "Generate" button
     def submit(self):
         if self.ui.radioButton.isChecked():
             f = 1
@@ -111,7 +131,7 @@ class ResultWindow(QTextEdit):
         self.show()
 
 if __name__ == '__main__':
-    winlist = []
+    winlist = [] # necessary to keep result window visible
     app = QApplication(sys.argv)
     main_window = MainWindow()
     winlist.append(main_window)
