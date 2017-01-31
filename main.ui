@@ -6,41 +6,28 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>304</width>
-    <height>322</height>
+    <width>385</width>
+    <height>358</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>250</y>
-      <width>261</width>
-      <height>34</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>問題作成</string>
-    </property>
-   </widget>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
       <x>20</x>
       <y>20</y>
-      <width>111</width>
-      <height>141</height>
+      <width>113</width>
+      <height>151</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>除数の桁</string>
+        <string>割られる数の桁</string>
        </property>
       </widget>
      </item>
@@ -50,7 +37,7 @@
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
        <property name="value">
-        <number>3</number>
+        <number>5</number>
        </property>
       </widget>
      </item>
@@ -64,7 +51,7 @@
      <item>
       <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>被除数の桁</string>
+        <string>割る数の桁</string>
        </property>
       </widget>
      </item>
@@ -85,8 +72,8 @@
      <rect>
       <x>160</x>
       <y>20</y>
-      <width>121</width>
-      <height>201</height>
+      <width>201</width>
+      <height>171</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -118,12 +105,44 @@
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="label_5">
+      <widget class="QRadioButton" name="radioButton_3">
        <property name="text">
-        <string/>
+        <string>ミックス</string>
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QSlider" name="horizontalSlider">
+       <property name="value">
+        <number>50</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>50%</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget_3">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>200</y>
+      <width>131</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_3">
      <item>
       <widget class="QLabel" name="label_4">
        <property name="text">
@@ -137,11 +156,24 @@
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
        <property name="value">
-        <number>10</number>
+        <number>9</number>
        </property>
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>280</y>
+      <width>261</width>
+      <height>34</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>問題作成</string>
+    </property>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>

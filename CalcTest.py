@@ -30,40 +30,59 @@ class MainWindow(QMainWindow):
         self.ui.bg = QButtonGroup()
         self.ui.bg.addButton(self.ui.radioButton)
         self.ui.bg.addButton(self.ui.radioButton_2)
+        self.ui.bg.addButton(self.ui.radioButton_3)
+        self.ui.horizontalSlider.setRange(0, 100)
+        self.ui.horizontalSlider.setEnabled(False)
+        self.ui.radioButton.clicked.connect(self.changeChecked)
+        self.ui.radioButton_2.clicked.connect(self.changeChecked)
+        self.ui.radioButton_3.clicked.connect(self.changeChecked)
+        self.ui.horizontalSlider.valueChanged[int].connect(self.changeValue)
         self.ui.pushButton.clicked.connect(self.submit)
         self.setWindowTitle('CalcTest')
         self.show()
 
+    def changeChecked(self):
+        if self.ui.radioButton_3.isChecked():
+            self.ui.horizontalSlider.setEnabled(True)
+        else:
+            self.ui.horizontalSlider.setEnabled(False)
+
+    def changeValue(self, value):
+        if self.ui.radioButton_3.isChecked():
+            self.ui.label_5.setText(str(value) + "%")
+
     def submit(self):
         if self.ui.radioButton.isChecked():
             f = 1
-        else:
+        elif self.ui.radioButton_2.isChecked():
             f = 0
+        else:
+            f = 2
         result_window = ResultWindow(self.ui.spinBox_2.value(),
-                self.ui.spinBox.value(), self.ui.spinBox_3.value(), f)
+                self.ui.spinBox.value(), self.ui.spinBox_3.value(), f,
+                self.ui.horizontalSlider.value())
         winlist.append(result_window)
 
-class ResultWindow(QTableWidget):
-    def __init__(self, a, b, l, f):
+class ResultWindow(QTextEdit):
+    def __init__(self, a, b, l, f, v):
         super(ResultWindow, self).__init__()
         self.resize(400, 600)
         theaders = ['問題', '答']
-        self.clear()
-        self.setRowCount(l)
-        self.setColumnCount(len(theaders))
-        self.setHorizontalHeaderLabels(theaders)
         for i in range(l):
-            r = mkitem(a, b, f)
-            s = str(r[0]) + ' ÷ ' + str(r[1])
-            item = QTableWidgetItem(s)
-#            item.setTextAlignment(Qt.AlignTrailing|Qt.AlignVCenter)
-            self.setItem(i, 0, item)
-            s = str(r[2])
-            if f == 1 and r[3] != 0:
-                s = s + ' あまり ' + str(r[3])
-            item = QTableWidgetItem(s)
-#            item.setTextAlignment(Qt.AlignTrailing|Qt.AlignVCenter)
-            self.setItem(i, 1, item)
+            if f == 2:
+                if random.randint(0, 100) < v:
+                    ff = 1
+                else:
+                    ff = 0
+            else:
+                ff = f
+            r = mkitem(a, b, ff)
+            s = '(' + str(i) + ')    '
+            s = s + str(r[0]) + ' ÷ ' + str(r[1])
+            s = s + '  =  ' + str(r[2])
+            if ff == 1 and r[3] != 0:
+                s = s + '  あまり  ' + str(r[3])
+            self.append(s)
         self.setWindowTitle('作成された問題')
         self.show()
 
