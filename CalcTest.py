@@ -39,7 +39,10 @@ def randsort_f(l, v):
 # f: flag 0 -- no remainder, 1 -- with remainder
 def mkitem(a, b, f):
     x = random.randint(10 ** (a - 1), 10 ** a - 1)
-    y = random.randint(10 ** (b - 1), 10 ** b - 1)
+    if b == 1 and f == 1:
+        y = random.randint(2, 9)
+    else:
+        y = random.randint(10 ** (b - 1), 10 ** b - 1)
     if f == 0:
         x = int(x / y) * y
         if x < 10 ** (a - 1):
@@ -49,6 +52,9 @@ def mkitem(a, b, f):
     else:
         r = int(x / y)
         s = x - y * r
+        if s == 0:
+            s = random.randint(1, min(y - 1, 10 ** a - 1 - x))
+            x = x + s 
     return [x, y, r, s]
 
 
@@ -122,8 +128,8 @@ class ResultWindow(QTextEdit):
         for i in range(l):
             r = mkitem(a, b, far[i])
             s = '(' + str(i) + ')    '
-            s = s + str(r[0]) + ' ÷ ' + str(r[1])
-            s = s + '  =  ' + str(r[2])
+            s = s + str(r[0]) + '  ÷  ' + str(r[1])
+            s = s + '    =    ' + str(r[2])
             if far[i] == 1 and r[3] != 0:
                 s = s + '  あまり  ' + str(r[3])
             self.append(s)
