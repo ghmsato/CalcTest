@@ -127,7 +127,7 @@ class ResultWindow(QTextEdit):
             far = [f] * l
         for i in range(l):
             r = mkitem(a, b, far[i])
-            s = '(' + str(i) + ')    '
+            s = '(' + str(i + 1) + ')    '
             s = s + str(r[0]) + '  ÷  ' + str(r[1])
             s = s + '    =    ' + str(r[2])
             if far[i] == 1 and r[3] != 0:
